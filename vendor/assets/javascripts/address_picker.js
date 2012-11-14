@@ -84,7 +84,8 @@ AddressPickerRails.OriginalPicker = function (my) {
               this.element.autocomplete({
                 source: $.proxy(this._geocode, this),  
                 focus:  $.proxy(this._focusAddress, this),
-                select: $.proxy(this._selectAddress, this)
+                select: $.proxy(this._selectAddress, this),
+                componentRestrictions: {country: "fr"}
               });
               
               this.lat      = $(this.options.elements.lat);
