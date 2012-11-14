@@ -131,8 +131,17 @@ AddressPickerRails.OriginalPicker = function (my) {
                         if (status == google.maps.GeocoderStatus.OK) {
                             for (var i = 0; i < results.length; i++) {
                                 results[i].label = results[i].formatted_address;
-                            }
-                            ;
+                                for (var j = 0; j<results[i].address_components.length; j++){
+                                //console.log(results[i]);
+                                if ((results[i].address_components[j].types[0] =="country") && (results[i].address_components[j].short_name =="FR"))
+                                    {
+                                        //console.log(results[i].address_components[j].short_name);
+                                        results[i].label = results[i].formatted_address;
+                                        //fr_results[i] = results[i];
+                                        fr_results.push(results[i]);
+                                    }
+                                }
+                            };
                         }
                         response(results);
                     })
