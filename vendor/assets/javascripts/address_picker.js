@@ -134,7 +134,7 @@ AddressPickerRails.OriginalPicker = function (my) {
                                 results[i].label = results[i].formatted_address;
                                 for (var j = 0; j<results[i].address_components.length; j++){
                                     //console.log(results[i]);
-                                    if ((results[i].address_components[j].types[0] =="country") && (results[i].address_components[j].short_name =="FR"))
+                                    if ((results[i].address_components[j].types[0] =="country") && (results[i].address_components[j].short_name =="FR" || results[i].address_components[j].short_name =="CH" || results[i].address_components[j].short_name =="PM" || results[i].address_components[j].short_name =="RE" || results[i].address_components[j].short_name =="MQ" || results[i].address_components[j].short_name =="LU" || results[i].address_components[j].short_name =="GP" || results[i].address_components[j].short_name =="GF" || results[i].address_components[j].short_name =="BE"))
                                     {
                                         //console.log(results[i].address_components[j].short_name);
                                         results[i].label = results[i].formatted_address;
