@@ -128,12 +128,13 @@ AddressPickerRails.OriginalPicker = function (my) {
                         'address':address + this.options.appendAddressString,
                         'region' :this.options.regionBias
                     }, function (results, status) {
+                        var fr_results= [];
                         if (status == google.maps.GeocoderStatus.OK) {
                             for (var i = 0; i < results.length; i++) {
                                 results[i].label = results[i].formatted_address;
                                 for (var j = 0; j<results[i].address_components.length; j++){
-                                //console.log(results[i]);
-                                if ((results[i].address_components[j].types[0] =="country") && (results[i].address_components[j].short_name =="FR"))
+                                    //console.log(results[i]);
+                                    if ((results[i].address_components[j].types[0] =="country") && (results[i].address_components[j].short_name =="FR"))
                                     {
                                         //console.log(results[i].address_components[j].short_name);
                                         results[i].label = results[i].formatted_address;
@@ -143,7 +144,7 @@ AddressPickerRails.OriginalPicker = function (my) {
                                 }
                             };
                         }
-                        response(results);
+                        response(fr_results);
                     })
                 },
 
