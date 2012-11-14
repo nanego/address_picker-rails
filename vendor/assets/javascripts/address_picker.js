@@ -133,7 +133,7 @@ AddressPickerRails.OriginalPicker = function (my) {
                 var address = request.term, self = this;
                 this.geocoder.geocode({
                     'address': address + this.options.appendAddressString,
-                    'region': 'FR'
+                    'region': this.options.regionBias
                 }, function(results, status) {
                     var fr_results= [];
                     if (status == google.maps.GeocoderStatus.OK) {
