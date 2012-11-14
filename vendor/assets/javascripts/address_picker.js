@@ -84,8 +84,7 @@ AddressPickerRails.OriginalPicker = function (my) {
               this.element.autocomplete({
                 source: $.proxy(this._geocode, this),  
                 focus:  $.proxy(this._focusAddress, this),
-                select: $.proxy(this._selectAddress, this),
-                componentRestrictions: {country: "fr"}
+                select: $.proxy(this._selectAddress, this)
               });
               
               this.lat      = $(this.options.elements.lat);
@@ -134,7 +133,8 @@ AddressPickerRails.OriginalPicker = function (my) {
                 var address = request.term, self = this;
                 this.geocoder.geocode({
                     'address': address + this.options.appendAddressString,
-                    'region': this.options.regionBias
+                    'region': this.options.regionBias,
+                    'componentRestrictions': 'FR'
                 }, function(results, status) {
                     var fr_results= [];
                     if (status == google.maps.GeocoderStatus.OK) {
